@@ -16,7 +16,7 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    
+
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
         city = input('Enter city name (chicago, new york city, washington): ').lower()
@@ -60,7 +60,7 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
-    
+
     # Load the data file for the selected city
     df = pd.read_csv(CITY_DATA[city])
 
@@ -75,7 +75,7 @@ def load_data(city, month, day):
     if month != 'all':
         month_num = ['january', 'february', 'march', 'april', 'may', 'june'].index(month) + 1
         df = df[df['Month'] == month_num]
-        
+
 
     if day != 'all':
         df = df[df['Day of Week'] == day.title()]
@@ -197,7 +197,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        
+
         show_raw_data = input('\nWould you like to see 5 lines of raw data? Enter yes or no.\n')
         if show_raw_data.lower() == 'yes':
             row_index = 0
